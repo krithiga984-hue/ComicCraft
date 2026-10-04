@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicCraft AI</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-cover bg-center flex items-center justify-center p-4" 
+      style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920');">
+    
+    <!-- Dark overlay for clarity -->
+    <div class="fixed inset-0 bg-black/20"></div>
+
+    <!-- Center White Card -->
+    <div class="relative bg-white/90 backdrop-blur-md p-8 rounded-2xl shadow-2xl max-w-md w-full border border-white/50 text-gray-800">
+        <h1 class="text-2xl font-bold mb-6 text-center text-slate-900 flex items-center justify-center gap-2">
+            ✏️ Create Your Comic
+        </h1>
+        
+        <form action="/generate" method="post" class="space-y-4">
+            <div>
+                <label class="block text-sm font-semibold mb-1 text-slate-700">Story Prompt *</label>
+                <textarea name="prompt" required placeholder="A brave fox explores an enchanted forest..." 
+                    class="w-full p-3 rounded-lg bg-slate-50 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 h-20 text-sm"></textarea>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold mb-1 text-slate-700">Main Character Name</label>
+                <input type="text" name="character_name" placeholder="Fox" 
+                    class="w-full p-2 rounded-lg bg-slate-50 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 text-sm">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold mb-1 text-slate-700">Setting</label>
+                <input type="text" name="setting" placeholder="Forest" 
+                    class="w-full p-2 rounded-lg bg-slate-50 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 text-sm">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold mb-1 text-slate-700">Story Tone</label>
+                <input type="text" name="tone" placeholder="Dramatic" 
+                    class="w-full p-2 rounded-lg bg-slate-50 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 text-sm">
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold mb-1 text-slate-700">Art Style</label>
+                <input type="text" name="art_style" placeholder="Realistic" 
+                    class="w-full p-2 rounded-lg bg-slate-50 border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 text-sm">
+            </div>
+
+            <button type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition duration-200 mt-4 shadow-md">
+                Generate Comic
+            </button>
+        </form>
+    </div>
+</body>
+</html>

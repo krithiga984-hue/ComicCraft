@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Comic Preview - ComicCraft AI</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #dcecff;
+        }
+
+
+        /* MAIN PAGE */
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+
+            margin: 35px auto 60px auto;
+        }
+
+
+        /* PAGE TITLE */
+
+        .heading {
+            text-align: center;
+
+            color: #172554;
+
+            font-size: 30px;
+            font-weight: bold;
+
+            margin: 0 0 30px 0;
+        }
+
+
+        /* PANEL CARD */
+
+        .panel {
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 18px;
+
+            margin-bottom: 28px;
+
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* PANEL TITLE */
+
+        .panel-title {
+            margin: 0 0 15px 0;
+
+            font-size: 21px;
+            font-weight: bold;
+
+            color: #111827;
+        }
+
+
+        /* IMAGE AREA
+           Watermark is normally at the bottom.
+           This wrapper hides only the bottom edge.
+        */
+
+        .image-box {
+            width: 330px;
+            height: 315px;
+
+            overflow: hidden;
+
+            border-radius: 6px;
+
+            margin: 0 0 14px 0;
+        }
+
+
+        /* IMAGE */
+
+        .panel-image {
+            display: block;
+
+            width: 330px;
+            height: 345px;
+
+            object-fit: cover;
+
+            object-position: center top;
+
+            border-radius: 6px;
+        }
+
+
+        /* STORY */
+
+        .story {
+            display: block;
+
+            width: 330px;
+            max-width: 100%;
+
+            margin: 0;
+
+            padding: 0;
+
+            color: #6b7280;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+            font-style: italic;
+        }
+
+
+        /* LAST BUTTON */
+
+        .bottom-button {
+            text-align: center;
+
+            margin-top: 40px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .button {
+            display: inline-block;
+
+            background: #2563eb;
+
+            color: white;
+
+            padding: 12px 24px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 94%;
+            }
+
+            .heading {
+                font-size: 25px;
+            }
+
+            .image-box {
+                width: 280px;
+                height: 265px;
+            }
+
+            .panel-image {
+                width: 280px;
+                height: 295px;
+            }
+
+            .story {
+                width: 280px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+    <!-- PAGE TITLE -->
+
+    <h1 class="heading">
+        📖 Your Comic Preview
+    </h1>
+
+
+    <!-- ALL PANELS -->
+
+    {% for panel in panels %}
+
+    <div class="panel">
+
+
+        <!-- PANEL TITLE -->
+
+        <h2 class="panel-title">
+
+            Panel {{ panel.panel }}
+
+            {% if panel.title %}
+                : {{ panel.title }}
+            {% endif %}
+
+        </h2>
+
+
+        <!-- IMAGE -->
+
+        <div class="image-box">
+
+            <img
+                src="{{ panel.image_path }}"
+                alt="Comic Panel {{ panel.panel }}"
+                class="panel-image"
+            >
+
+        </div>
+
+
+        <!-- STORY BELOW IMAGE -->
+
+        <p class="story">
+
+            {% if panel.description %}
+
+                {{ panel.description }}
+
+            {% elif panel.scene %}
+
+                {{ panel.scene }}
+
+            {% elif panel.story %}
+
+                {{ panel.story }}
+
+            {% elif panel.text %}
+
+                {{ panel.text }}
+
+            {% elif panel.content %}
+
+                {{ panel.content }}
+
+            {% else %}
+
+                Scene {{ panel.panel }} of the comic story.
+
+            {% endif %}
+
+        </p>
+
+
+    </div>
+
+    {% endfor %}
+
+
+    <!-- GENERATE ANOTHER COMIC - LAST -->
+
+    <div class="bottom-button">
+
+        <a href="/" class="button">
+            Generate Another Comic
+        </a>
+
+    </div>
+
+
+</div>
+
+</body>
+
+</html>

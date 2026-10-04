@@ -1,0 +1,5 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="#1a202c"/>
+        <text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" fill="#edf2f4" font-size="20" font-family="sans-serif">Comic Panel Placeholder</text>
+        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#e53e3e" font-size="14" font-family="sans-serif">A brave fox explores an e...</text>
+    </svg>
